@@ -18,15 +18,18 @@ class DerivedClass : public BaseClass{
 };
 
 int main(){
-    BaseClass *base_class_pointer;
-    BaseClass base_obj;
+    BaseClass *base_class_pointer; // base class pointer
+    BaseClass base_obj;            // base class object
 
-    base_class_pointer ->var_base=45;
-    base_class_pointer ->display();
- 
+   DerivedClass derive_obj;
+   base_class_pointer=&derive_obj; // base class pointer pointing derive class object
+   base_class_pointer->var_base=3453; /*as it is base class pointer
+                                       base class display will execute*/
+   base_class_pointer->display();    //   this will bind with base class function
 
-   DerivedClass *derive_class_pointer;
-   derive_class_pointer ->var_base=34;
-   derive_class_pointer ->var_derived=90;
-   derive_class_pointer ->display();
+   DerivedClass *derive_class_pointer; // derived classs pointer
+   derive_class_pointer=&derive_obj;  
+   derive_class_pointer->var_derived=23423;
+   derive_class_pointer->display();  // this wil bind with derive class property
+   
 }
